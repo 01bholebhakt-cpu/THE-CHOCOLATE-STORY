@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#321914">
+  <meta name="description" content="Contact The Chocolate Story for chocolate orders, flavour enquiries and gifting options.">
   <title>Contact Us | The Chocolate Story</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <header class="site-header">
-    <a href="index.html" class="brand">
+    <a href="index.html" class="brand" aria-label="The Chocolate Story home">
       <img src="assets/logo.jpg" alt="The Chocolate Story logo">
       <span>The Chocolate Story</span>
     </a>
@@ -37,43 +39,52 @@
   </header>
 
   <main class="product-page">
+
     <div class="breadcrumb">
       <a href="index.html">Home</a>
       <span>/</span>
       <span>Contact</span>
     </div>
 
-    <section class="product-extra">
+    <section class="contact-hero">
       <p class="eyebrow">WE'D LOVE TO HEAR FROM YOU</p>
       <h1>Let's make it chocolate.</h1>
       <p>
-        Looking for a favourite flavour, a thoughtful gift or a
-        chocolate order for a special occasion? Send us your enquiry.
+        Looking for your favourite flavour, a thoughtful gift,
+        or chocolates for a special occasion? Tell us what you need.
       </p>
     </section>
 
     <section class="contact-layout">
+
       <div class="contact-copy">
         <p class="eyebrow">HERE TO HELP</p>
-        <h2>Tell us what you're looking for.</h2>
+        <h2>Something sweet starts here.</h2>
+
         <p>
-          Ask about product availability, current prices, delivery
-          options or personalised gifting. Our team can confirm
+          Send us an enquiry about product availability, current
+          prices, delivery or gifting options. The store can confirm
           the details with you before an order is finalised.
         </p>
 
         <div class="contact-note">
-          <h3>Product enquiries</h3>
-          <p>Ask about flavours, sizes and current availability.</p>
+          <h3>Choco Bowls</h3>
+          <p>Ask about flavours, prices and availability.</p>
         </div>
 
         <div class="contact-note">
-          <h3>Gifting enquiries</h3>
-          <p>Tell us about the occasion and the kind of gift you need.</p>
+          <h3>Signature Chocolates</h3>
+          <p>Enquire about flavours and current offerings.</p>
+        </div>
+
+        <div class="contact-note">
+          <h3>Gift Hampers</h3>
+          <p>Discuss gifting options for birthdays and celebrations.</p>
         </div>
       </div>
 
       <form id="contactEnquiryForm" class="contact-form">
+
         <label for="contactName">Your name</label>
         <input
           id="contactName"
@@ -81,6 +92,7 @@
           type="text"
           autocomplete="name"
           placeholder="Enter your name"
+          maxlength="100"
           required
         >
 
@@ -90,14 +102,15 @@
           name="phone"
           type="tel"
           autocomplete="tel"
-          placeholder="Your contact number"
+          placeholder="Enter your contact number"
           pattern="[0-9+\-\s()]{8,20}"
+          maxlength="20"
           required
         >
 
         <label for="contactTopic">What are you enquiring about?</label>
         <select id="contactTopic" name="topic" required>
-          <option value="">Choose an option</option>
+          <option value="">Select a category</option>
           <option value="Choco Bowls">Choco Bowls</option>
           <option value="Signature Chocolates">Signature Chocolates</option>
           <option value="Gift Hampers">Gift Hampers</option>
@@ -111,19 +124,45 @@
           id="contactMessage"
           name="message"
           rows="5"
+          maxlength="1500"
           placeholder="Tell us what you have in mind..."
           required
         ></textarea>
 
-        <button class="button button-dark" type="submit">
-          Send Enquiry on WhatsApp
+        <button
+          class="button button-dark contact-submit"
+          type="submit"
+        >
+          Continue on WhatsApp
         </button>
 
         <p class="checkout-note">
-          Your enquiry will open in WhatsApp for you to review and send.
+          WhatsApp will open with your enquiry prefilled.
+          Review the message and press Send to submit it.
         </p>
+
+        <p
+          id="contactFormStatus"
+          class="checkout-note"
+          role="status"
+          aria-live="polite"
+        ></p>
+
       </form>
     </section>
+
+    <section class="product-extra">
+      <p class="eyebrow">A LITTLE SOMETHING SPECIAL</p>
+      <h2>Find your chocolate favourite.</h2>
+      <p>
+        Explore our collections and discover something for yourself
+        or someone special.
+      </p>
+      <a href="shop.html" class="button button-dark">
+        Explore the Collection
+      </a>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -133,33 +172,55 @@
   </footer>
 
   <script src="app.js"></script>
+
   <script>
-    document.getElementById("contactEnquiryForm")
-      .addEventListener("submit", function (event) {
+    (() => {
+      const form = document.getElementById("contactEnquiryForm");
+      const status = document.getElementById("contactFormStatus");
+
+      if (!form) return;
+
+      form.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        if (!this.reportValidity()) return;
+        if (!form.reportValidity()) return;
 
-        const formData = new FormData(this);
+        const formData = new FormData(form);
+
+        const name = String(formData.get("name") || "").trim();
+        const phone = String(formData.get("phone") || "").trim();
+        const topic = String(formData.get("topic") || "").trim();
+        const messageText = String(formData.get("message") || "").trim();
 
         const message = [
           "Hello The Chocolate Story!",
           "",
           "I'd like to make an enquiry.",
-          "Name: " + formData.get("name"),
-          "Phone: " + formData.get("phone"),
-          "Topic: " + formData.get("topic"),
-          "Message: " + formData.get("message")
-        ].join("\\n");
+          "",
+          "Name: " + name,
+          "Phone: " + phone,
+          "Category: " + topic,
+          "Message: " + messageText,
+          "",
+          "Please share the relevant details. Thank you!"
+        ].join("\n");
 
-        if (window.ChocolateStoryStore) {
-          window.ChocolateStoryStore.openProductEnquiry({
-            name: "General enquiry",
-            category: "gifts",
-            description: message
-          });
+        if (
+          !window.ChocolateStoryStore ||
+          typeof window.ChocolateStoryStore.openWhatsAppMessage !== "function"
+        ) {
+          status.textContent =
+            "Unable to open the enquiry. Please refresh the page and try again.";
+          return;
         }
+
+        status.textContent =
+          "WhatsApp is opening. Review your enquiry before sending.";
+
+        window.ChocolateStoryStore.openWhatsAppMessage(message);
       });
+    })();
   </script>
+
 </body>
 </html>
