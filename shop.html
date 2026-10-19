@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#351519" />
+
+  <title>Shop Chocolates & Choco Bowls | The Chocolate Story</title>
+  <meta name="description" content="Browse Choco Bowls and discover your favourite flavours from The Chocolate Story." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <div class="announcement-bar">
+    Handcrafted with love · 100% eggless · PAN India delivery
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="The Chocolate Story home">
+      <img src="assets/logo.jpg" alt="The Chocolate Story logo" class="brand-logo" />
+      <span class="brand-copy">
+        <strong>The Chocolate Story</strong>
+        <small>MADE WITH LOVE</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a class="active" href="shop.html">Shop All</a>
+      <a href="shop.html?category=bowls">Choco Bowls</a>
+      <a href="shop.html?category=chocolates">Chocolates</a>
+      <a href="shop.html?category=gifts">Gifting</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="icon-link" href="#shopSearch" aria-label="Search products">⌕</a>
+      <a class="cart-link" href="cart.html">
+        Bag <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-shell">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> / Shop
+      </div>
+
+      <p class="eyebrow">A LITTLE SOMETHING TO LOVE</p>
+      <h1 class="page-title">The chocolate <em>collection.</em></h1>
+      <p class="page-intro">
+        Explore our Choco Bowl flavours and discover a little sweetness for
+        every kind of craving. Select your favourites and add them to your bag.
+      </p>
+
+      <div class="collection-grid">
+        <a class="collection-card" href="shop.html?category=bowls">
+          <div class="collection-art collection-art-bowls">
+            <span class="collection-symbol">◉</span>
+          </div>
+          <div class="collection-info">
+            <div>
+              <h3>Choco Bowls</h3>
+              <p>Explore all 11 listed bowl flavours.</p>
+            </div>
+            <span class="round-arrow">↗</span>
+          </div>
+        </a>
+
+        <a class="collection-card" href="shop.html?category=chocolates">
+          <div class="collection-art collection-art-chocolates">
+            <span class="collection-symbol">✳</span>
+          </div>
+          <div class="collection-info">
+            <div>
+              <h3>Chocolates</h3>
+              <p>Discover handcrafted flavour ideas.</p>
+            </div>
+            <span class="round-arrow">↗</span>
+          </div>
+        </a>
+
+        <a class="collection-card" href="shop.html?category=gifts">
+          <div class="collection-art collection-art-gifts">
+            <span class="collection-symbol">♡</span>
+          </div>
+          <div class="collection-info">
+            <div>
+              <h3>Gifts & Hampers</h3>
+              <p>Find something thoughtful to share.</p>
+            </div>
+            <span class="round-arrow">↗</span>
+          </div>
+        </a>
+      </div>
+
+      <div style="margin-top: 65px;">
+        <p class="eyebrow">FIND YOUR FAVOURITE</p>
+        <h2 class="page-title" style="font-size: 35px;">Shop the collection</h2>
+
+        <div class="shop-toolbar">
+          <input
+            class="shop-search"
+            id="shopSearch"
+            type="search"
+            placeholder="Search flavours..."
+            aria-label="Search products"
+          />
+
+          <select class="shop-sort" id="shopSort" aria-label="Sort products">
+            <option value="featured">Featured</option>
+            <option value="price-low">Price: low to high</option>
+            <option value="price-high">Price: high to low</option>
+            <option value="name">Name: A to Z</option>
+          </select>
+        </div>
+
+        <div class="category-filters" aria-label="Filter products by category">
+          <button class="filter-button active" type="button" data-category-filter="all">All products</button>
+          <button class="filter-button" type="button" data-category-filter="bowls">Choco Bowls</button>
+          <button class="filter-button" type="button" data-category-filter="chocolates">Chocolates</button>
+          <button class="filter-button" type="button" data-category-filter="gifts">Gifts & Hampers</button>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin:22px 0 12px;">
+          <p id="shopResultCount" style="margin:0;color:#84736d;font-size:12px;">11 products</p>
+          <p style="margin:0;color:#84736d;font-size:10px;">Prices require confirmation before launch.</p>
+        </div>
+
+        <div class="shop-grid" id="shopProducts">
+          <p class="empty-state">Loading products...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gift-banner">
+      <div>
+        <p class="eyebrow">NEED A LITTLE HELP?</p>
+        <h2>Choosing a gift<br /><em>should feel sweet.</em></h2>
+        <p>Explore the gifting collection or enquire about a custom order.</p>
+      </div>
+      <a class="button button-dark" href="shop.html?category=gifts">Explore gifting ↗</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="index.html">
+          <img src="assets/logo.jpg" alt="" class="brand-logo" loading="lazy" />
+          <span class="brand-copy">
+            <strong>The Chocolate Story</strong>
+            <small>MADE WITH LOVE</small>
+          </span>
+        </a>
+        <p>Luxury chocolates, thoughtful gifts and sweetness in every bite.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop all</a>
+        <a href="shop.html?category=bowls">Choco Bowls</a>
+        <a href="shop.html?category=gifts">Gifting</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Customer care</h3>
+        <a href="contact.html">Contact us</a>
+        <a href="shipping.html">Delivery information</a>
+        <a href="cart.html">Shopping bag</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Our promise</h3>
+        <span>100% eggless</span>
+        <span>Made with love</span>
+        <span>PAN India delivery</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="currentYear"></span> The Chocolate Story</span>
+      <span>Made for the love of chocolate ♡</span>
+    </div>
+  </footer>
+
+  <a class="mobile-bag" href="cart.html">
+    View bag · <span id="mobileCartCount">0</span> items
+    <span id="mobileCartTotal"></span>
+  </a>
+</body>
+</html>
