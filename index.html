@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#351519" />
+
+  <title>The Chocolate Story | Luxury Chocolates & Gifts</title>
+  <meta
+    name="description"
+    content="Discover handcrafted chocolates, Choco Bowls and thoughtful gifts from The Chocolate Story."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <div class="announcement-bar">
+    Handcrafted with love · 100% eggless · PAN India delivery
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="The Chocolate Story home">
+      <img
+        src="assets/logo.jpg"
+        alt="The Chocolate Story logo"
+        class="brand-logo"
+      />
+      <span class="brand-copy">
+        <strong>The Chocolate Story</strong>
+        <small>MADE WITH LOVE</small>
+      </span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="shop.html">Shop All</a>
+      <a href="shop.html?category=bowls">Choco Bowls</a>
+      <a href="shop.html?category=chocolates">Chocolates</a>
+      <a href="shop.html?category=gifts">Gifting</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="icon-link" href="shop.html" aria-label="Search products">⌕</a>
+      <a class="cart-link" href="cart.html">
+        Bag <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">A LITTLE BOX OF HAPPINESS</p>
+
+        <h1>
+          Some moments<br />
+          deserve <em>chocolate.</em>
+        </h1>
+
+        <p class="hero-description">
+          From your favourite Choco Bowl to a gift they'll never forget,
+          discover something sweet for every kind of moment.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-dark" href="shop.html">
+            Explore the collection <span aria-hidden="true">↗</span>
+          </a>
+          <a class="text-link" href="shop.html?category=gifts">
+            Find a thoughtful gift
+          </a>
+        </div>
+
+        <div class="hero-note">
+          <span class="hero-note-icon">♡</span>
+          <span>
+            <strong>Made for your moments</strong>
+            <small>Discover flavours worth sharing.</small>
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-frame">
+          <img
+            src="assets/choco-bowls.jpg"
+            alt="The Chocolate Story Choco Bowl collection"
+            class="hero-image"
+          />
+        </div>
+        <div class="hero-sticker">
+          <span>Sweetness</span>
+          <strong>in every<br />bite ♡</strong>
+        </div>
+        <div class="hero-caption">
+          <span>01 / THE SIGNATURE COLLECTION</span>
+          <span>Made with love</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND PROMISES -->
+    <section class="promise-strip" aria-label="Brand information">
+      <div><span>♡</span> Handcrafted chocolates</div>
+      <div><span>✳</span> 100% eggless</div>
+      <div><span>↗</span> PAN India delivery</div>
+      <div><span>♡</span> Gifts made personal</div>
+    </section>
+
+    <!-- COLLECTIONS -->
+    <section class="section collections-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FIND YOUR KIND OF SWEET</p>
+          <h2>A little something <em>for everyone.</em></h2>
+        </div>
+        <a class="text-link" href="shop.html">View all products ↗</a>
+      </div>
+
+      <div class="collection-grid">
+        <a class="collection-card collection-bowls" href="shop.html?category=bowls">
+          <div class="collection-art collection-art-bowls">
+            <span class="collection-symbol">◉</span>
+          </div>
+          <div class="collection-info">
+            <div>
+              <h3>Choco Bowls</h3>
+              <p>Your favourite flavours, one delicious bowl.</p>
+            </div>
+            <span class="round-arrow">↗</span>
+          </div>
+        </a>
+
+        <a class="collection-card collection-chocolates" href="shop.html?category=chocolates">
+          <div class="collection-art collection-art-chocolates">
+            <span class="collection-symbol">✳</span>
+          </div>
+          <div class="collection-info">
+            <div>
+              <h3>Signature Chocolates</h3>
+              <p>Explore a world of handcrafted flavours.</p>
+            </div>
+            <span class="round-arrow">↗</span>
+          </div>
+        </a>
+
+        <a class="collection-card collection-gifts" href="shop.html?category=gifts">
+          <div class="collection-art collection-art-gifts">
+            <span class="collection-symbol">♡</span>
+          </div>
+          <div class="collection-info">
+            <div>
+              <h3>Gifts & Hampers</h3>
+              <p>Make their special day a little sweeter.</p>
+            </div>
+            <span class="round-arrow">↗</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="section featured-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE CROWD FAVOURITES</p>
+          <h2>Meet your next <em>obsession.</em></h2>
+          <p class="section-description">
+            Explore the Choco Bowl flavours customers can discover first.
+          </p>
+        </div>
+        <a class="text-link" href="shop.html?category=bowls">
+          Shop Choco Bowls ↗
+        </a>
+      </div>
+
+      <div class="product-grid" id="featuredProducts">
+        <article class="product-card">
+          <a href="product.html?id=dark-heaven" class="product-image-link">
+            <div class="product-placeholder product-dark">
+              <span class="product-art">●</span>
+              <span class="product-art-label">DARK<br />HEAVEN</span>
+            </div>
+          </a>
+          <div class="product-details">
+            <div>
+              <p class="product-category">CHOCO BOWL</p>
+              <h3><a href="product.html?id=dark-heaven">Dark Heaven</a></h3>
+              <p class="product-price">₹150</p>
+            </div>
+            <button class="quick-add" data-add="dark-heaven" aria-label="Add Dark Heaven to bag">+</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html?id=kunafa" class="product-image-link">
+            <div class="product-placeholder product-kunafa">
+              <span class="product-art">✳</span>
+              <span class="product-art-label">KUNAFA</span>
+            </div>
+          </a>
+          <div class="product-details">
+            <div>
+              <p class="product-category">CHOCO BOWL</p>
+              <h3><a href="product.html?id=kunafa">Kunafa</a></h3>
+              <p class="product-price">₹300</p>
+            </div>
+            <button class="quick-add" data-add="kunafa" aria-label="Add Kunafa to bag">+</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html?id=ferrero" class="product-image-link">
+            <div class="product-placeholder product-ferrero">
+              <span class="product-art">✦</span>
+              <span class="product-art-label">FERRERO</span>
+            </div>
+          </a>
+          <div class="product-details">
+            <div>
+              <p class="product-category">CHOCO BOWL</p>
+              <h3><a href="product.html?id=ferrero">Ferrero</a></h3>
+              <p class="product-price">₹200</p>
+            </div>
+            <button class="quick-add" data-add="ferrero" aria-label="Add Ferrero to bag">+</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html?id=biscoff" class="product-image-link">
+            <div class="product-placeholder product-biscoff">
+              <span class="product-art">♡</span>
+              <span class="product-art-label">BISCOFF</span>
+            </div>
+          </a>
+          <div class="product-details">
+            <div>
+              <p class="product-category">CHOCO BOWL</p>
+              <h3><a href="product.html?id=biscoff">Biscoff</a></h3>
+              <p class="product-price">₹250</p>
+            </div>
+            <button class="quick-add" data-add="biscoff" aria-label="Add Biscoff to bag">+</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="center-action">
+        <a class="button button-outline" href="shop.html?category=bowls">
+          Discover all Choco Bowls <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- BRAND STORY -->
+    <section class="story-section">
+      <div class="story-visual">
+        <img
+          src="assets/logo.jpg"
+          alt="The Chocolate Story brand emblem"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="story-copy">
+        <p class="eyebrow">A STORY MADE OF CHOCOLATE</p>
+        <h2>More than chocolate.<br /><em>A feeling to share.</em></h2>
+        <p>
+          From familiar favourites to exciting flavour combinations,
+          The Chocolate Story brings a little sweetness to celebrations,
+          thoughtful gifts and everyday treats.
+        </p>
+        <a class="button button-light" href="shop.html">
+          Explore our collection <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CUSTOM FLAVOURS -->
+    <section class="section flavour-section">
+      <div class="flavour-copy">
+        <p class="eyebrow">YOUR TASTE, YOUR STORY</p>
+        <h2>In the mood for<br /><em>something different?</em></h2>
+        <p>
+          Explore a wide variety of chocolate flavours, from Nutella and
+          Oreo to Paan, Rasmalai and more.
+        </p>
+        <a class="text-link" href="shop.html?category=chocolates">
+          Discover the flavours ↗
+        </a>
+      </div>
+
+      <div class="flavour-list" aria-label="Example chocolate flavours">
+        <span>Almond Crunch</span>
+        <span>Strawberry</span>
+        <span>Rasmalai</span>
+        <span>Nutella</span>
+        <span>Oreo</span>
+        <span>Royal Paan</span>
+        <span>Ferrero Rocher</span>
+        <span>Kunafa Bar</span>
+        <span class="flavour-more">And many more flavours ♡</span>
+      </div>
+    </section>
+
+    <!-- GIFTING CTA -->
+    <section class="gift-banner">
+      <div>
+        <p class="eyebrow">LITTLE THINGS. BIG FEELINGS.</p>
+        <h2>Make their day<br /><em>deliciously memorable.</em></h2>
+        <p>Find a sweet surprise for someone special.</p>
+      </div>
+      <a class="button button-dark" href="shop.html?category=gifts">
+        Explore gifting ↗
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="index.html">
+          <img src="assets/logo.jpg" alt="" class="brand-logo" loading="lazy" />
+          <span class="brand-copy">
+            <strong>The Chocolate Story</strong>
+            <small>MADE WITH LOVE</small>
+          </span>
+        </a>
+        <p>Luxury chocolates, thoughtful gifts and sweetness in every bite.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="shop.html">Shop all</a>
+        <a href="shop.html?category=bowls">Choco Bowls</a>
+        <a href="shop.html?category=chocolates">Chocolates</a>
+        <a href="shop.html?category=gifts">Gifts & Hampers</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Need help?</h3>
+        <a href="contact.html">Contact us</a>
+        <a href="shipping.html">Delivery information</a>
+        <a href="cart.html">Your shopping bag</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Our promise</h3>
+        <span>100% eggless</span>
+        <span>Made with love</span>
+        <span>PAN India delivery</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="currentYear"></span> The Chocolate Story</span>
+      <span>Made for the love of chocolate ♡</span>
+    </div>
+  </footer>
+
+  <a class="mobile-bag" href="cart.html">
+    View bag · <span id="mobileCartCount">0</span> items
+    <span id="mobileCartTotal"></span>
+  </a>
+</body>
+</html>
