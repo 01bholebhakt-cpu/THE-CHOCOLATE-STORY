@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#321914">
+  <title>Contact Us | The Chocolate Story</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.jpg" alt="The Chocolate Story logo">
+      <span>The Chocolate Story</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop All</a>
+      <a href="shop.html?category=bowls">Choco Bowls</a>
+      <a href="shop.html?category=chocolates">Chocolates</a>
+      <a href="shop.html?category=gifts">Gift Hampers</a>
+    </nav>
+
+    <a href="cart.html" class="cart-link">
+      Bag (<span id="cartCount">0</span>)
+    </a>
+
+    <button
+      type="button"
+      id="menuToggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >☰</button>
+  </header>
+
+  <main class="product-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span>Contact</span>
+    </div>
+
+    <section class="product-extra">
+      <p class="eyebrow">WE'D LOVE TO HEAR FROM YOU</p>
+      <h1>Let's make it chocolate.</h1>
+      <p>
+        Looking for a favourite flavour, a thoughtful gift or a
+        chocolate order for a special occasion? Send us your enquiry.
+      </p>
+    </section>
+
+    <section class="contact-layout">
+      <div class="contact-copy">
+        <p class="eyebrow">HERE TO HELP</p>
+        <h2>Tell us what you're looking for.</h2>
+        <p>
+          Ask about product availability, current prices, delivery
+          options or personalised gifting. Our team can confirm
+          the details with you before an order is finalised.
+        </p>
+
+        <div class="contact-note">
+          <h3>Product enquiries</h3>
+          <p>Ask about flavours, sizes and current availability.</p>
+        </div>
+
+        <div class="contact-note">
+          <h3>Gifting enquiries</h3>
+          <p>Tell us about the occasion and the kind of gift you need.</p>
+        </div>
+      </div>
+
+      <form id="contactEnquiryForm" class="contact-form">
+        <label for="contactName">Your name</label>
+        <input
+          id="contactName"
+          name="name"
+          type="text"
+          autocomplete="name"
+          placeholder="Enter your name"
+          required
+        >
+
+        <label for="contactPhone">Phone number</label>
+        <input
+          id="contactPhone"
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          placeholder="Your contact number"
+          pattern="[0-9+\-\s()]{8,20}"
+          required
+        >
+
+        <label for="contactTopic">What are you enquiring about?</label>
+        <select id="contactTopic" name="topic" required>
+          <option value="">Choose an option</option>
+          <option value="Choco Bowls">Choco Bowls</option>
+          <option value="Signature Chocolates">Signature Chocolates</option>
+          <option value="Gift Hampers">Gift Hampers</option>
+          <option value="Bulk or Event Orders">Bulk or Event Orders</option>
+          <option value="Delivery">Delivery</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="contactMessage">Your message</label>
+        <textarea
+          id="contactMessage"
+          name="message"
+          rows="5"
+          placeholder="Tell us what you have in mind..."
+          required
+        ></textarea>
+
+        <button class="button button-dark" type="submit">
+          Send Enquiry on WhatsApp
+        </button>
+
+        <p class="checkout-note">
+          Your enquiry will open in WhatsApp for you to review and send.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html">The Chocolate Story</a>
+    <p>Made with love. Shared with happiness.</p>
+    <a href="shop.html">Continue Shopping</a>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    document.getElementById("contactEnquiryForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!this.reportValidity()) return;
+
+        const formData = new FormData(this);
+
+        const message = [
+          "Hello The Chocolate Story!",
+          "",
+          "I'd like to make an enquiry.",
+          "Name: " + formData.get("name"),
+          "Phone: " + formData.get("phone"),
+          "Topic: " + formData.get("topic"),
+          "Message: " + formData.get("message")
+        ].join("\\n");
+
+        if (window.ChocolateStoryStore) {
+          window.ChocolateStoryStore.openProductEnquiry({
+            name: "General enquiry",
+            category: "gifts",
+            description: message
+          });
+        }
+      });
+  </script>
+</body>
+</html>
