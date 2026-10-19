@@ -10,12 +10,9 @@
 const STORE_WHATSAPP = "918847050895";
 const CART_STORAGE_KEY = "theChocolateStoryCart";
 
-/* ---------------------------------
-   PRODUCT CATALOGUE
----------------------------------- */
+/* PRODUCT CATALOGUE */
 
 const PRODUCTS = [
-  // CHOCO BOWLS — prices from supplied menu
   { id: "dark-heaven", name: "Dark Heaven", category: "bowls", price: 150, description: "A rich chocolate bowl for dark chocolate lovers.", symbol: "●" },
   { id: "kunafa", name: "Kunafa", category: "bowls", price: 300, description: "A delicious Kunafa-inspired chocolate bowl.", symbol: "✳" },
   { id: "ferrero", name: "Ferrero", category: "bowls", price: 200, description: "A chocolate bowl inspired by a much-loved flavour.", symbol: "✦" },
@@ -28,22 +25,18 @@ const PRODUCTS = [
   { id: "paan", name: "Paan", category: "bowls", price: 200, description: "A distinctive paan-inspired flavour.", symbol: "❋" },
   { id: "rasmalai", name: "Rasmalai", category: "bowls", price: 250, description: "A traditional dessert-inspired chocolate flavour.", symbol: "✿" },
 
-  // SIGNATURE FLAVOURS — enquiry only; prices not confirmed
   { id: "almond-crunch", name: "Almond Crunch", category: "chocolates", price: null, description: "Ask the store about availability and pricing for Almond Crunch.", symbol: "✦", enquiryOnly: true },
   { id: "strawberry", name: "Strawberry", category: "chocolates", price: null, description: "Ask the store about availability and pricing for Strawberry chocolate.", symbol: "♡", enquiryOnly: true },
   { id: "royal-paan", name: "Royal Paan", category: "chocolates", price: null, description: "Ask the store about availability and pricing for Royal Paan.", symbol: "❋", enquiryOnly: true },
   { id: "ferrero-rocher", name: "Ferrero Rocher", category: "chocolates", price: null, description: "Ask the store about availability and pricing for Ferrero Rocher chocolate.", symbol: "✦", enquiryOnly: true },
   { id: "kunafa-bar", name: "Kunafa Bar", category: "chocolates", price: null, description: "Ask the store about availability and pricing for the Kunafa Bar.", symbol: "✳", enquiryOnly: true },
 
-  // GIFTING CONCEPTS — enquiry only, not confirmed inventory
   { id: "personalised-hamper", name: "Personalised Gift Hamper", category: "gifts", price: null, description: "Enquire about a personalised chocolate gift hamper for your occasion.", symbol: "♡", enquiryOnly: true },
   { id: "celebration-box", name: "Celebration Gift Box", category: "gifts", price: null, description: "Ask about chocolate gifting options for birthdays and celebrations.", symbol: "✦", enquiryOnly: true },
   { id: "chocolate-surprise", name: "Chocolate Surprise Box", category: "gifts", price: null, description: "Enquire about a chocolate surprise box for someone special.", symbol: "🎁", enquiryOnly: true }
 ];
 
-/* ---------------------------------
-   GENERAL HELPERS
----------------------------------- */
+/* HELPERS */
 
 function formatPrice(amount) {
   if (amount === null || amount === undefined) return "Price on enquiry";
@@ -76,6 +69,8 @@ function getCategoryLabel(category) {
     gifts: "GIFTS & HAMPERS"
   }[category] || "THE CHOCOLATE STORY";
 }
+
+/* CART STORAGE */
 
 function getCart() {
   try {
@@ -127,9 +122,7 @@ function getCartTotal() {
   return getCartDetails().reduce((total, item) => total + item.lineTotal, 0);
 }
 
-/* ---------------------------------
-   WHATSAPP ENQUIRIES
----------------------------------- */
+/* WHATSAPP */
 
 function openProductEnquiry(product) {
   if (!product) return;
@@ -158,9 +151,7 @@ function openWhatsAppMessage(message) {
   window.open(url, "_blank", "noopener,noreferrer");
 }
 
-/* ---------------------------------
-   CART ACTIONS
----------------------------------- */
+/* CART ACTIONS */
 
 function addToCart(productId, quantity = 1) {
   const product = getProduct(productId);
@@ -215,9 +206,7 @@ function clearCart() {
   renderCartPage();
 }
 
-/* ---------------------------------
-   HEADER / NAVIGATION
----------------------------------- */
+/* HEADER / NAVIGATION */
 
 function updateCartUI() {
   const count = getCartCount();
@@ -255,9 +244,7 @@ function initNavigation() {
   });
 }
 
-/* ---------------------------------
-   TOAST MESSAGE
----------------------------------- */
+/* TOAST */
 
 function showToast(message) {
   let toast = document.getElementById("storeToast");
@@ -280,9 +267,7 @@ function showToast(message) {
   }, 2400);
 }
 
-/* ---------------------------------
-   PRODUCT CARDS
----------------------------------- */
+/* PRODUCT CARDS */
 
 function productCardHTML(product) {
   const priceText = formatPrice(product.price);
@@ -333,9 +318,7 @@ function renderFeaturedProducts() {
     .join("");
 }
 
-/* ---------------------------------
-   SHOP PAGE: SEARCH / FILTER / SORT
----------------------------------- */
+/* SHOP PAGE */
 
 function renderShopPage() {
   const container = document.getElementById("shopProducts");
@@ -426,9 +409,7 @@ function renderShopPage() {
   drawProducts();
 }
 
-/* ---------------------------------
-   PRODUCT DETAIL PAGE
----------------------------------- */
+/* PRODUCT DETAIL PAGE */
 
 function renderProductPage() {
   const container =
@@ -525,9 +506,7 @@ function renderProductPage() {
   addButton.addEventListener("click", () => addToCart(product.id, quantity));
 }
 
-/* ---------------------------------
-   CART PAGE
----------------------------------- */
+/* CART PAGE */
 
 function renderCartPage() {
   const itemsContainer = document.getElementById("cartItems");
@@ -593,9 +572,7 @@ function renderCartPage() {
   });
 }
 
-/* ---------------------------------
-   WHATSAPP CHECKOUT
----------------------------------- */
+/* WHATSAPP CHECKOUT */
 
 function buildWhatsAppMessage(customer = {}) {
   const items = getCartDetails();
@@ -660,9 +637,7 @@ function initCheckout() {
   }
 }
 
-/* ---------------------------------
-   GLOBAL BUTTONS
----------------------------------- */
+/* GLOBAL BUTTONS */
 
 function initAddToCartButtons() {
   document.addEventListener("click", event => {
@@ -684,9 +659,7 @@ function initCurrentYear() {
   if (element) element.textContent = new Date().getFullYear();
 }
 
-/* ---------------------------------
-   INITIALISE STORE
----------------------------------- */
+/* INITIALISE STORE */
 
 function initStore() {
   initNavigation();
@@ -706,7 +679,8 @@ if (document.readyState === "loading") {
   initStore();
 }
 
-/* Functions available to other pages/scripts */
+/* FUNCTIONS AVAILABLE TO OTHER PAGES */
+
 window.ChocolateStoryStore = {
   products: PRODUCTS,
   formatPrice,
@@ -720,5 +694,6 @@ window.ChocolateStoryStore = {
   clearCart,
   renderCartPage,
   openWhatsAppOrder,
-  openProductEnquiry
+  openProductEnquiry,
+  openWhatsAppMessage
 };
