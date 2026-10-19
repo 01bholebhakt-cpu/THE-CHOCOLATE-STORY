@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#321914">
+  <title>Your Bag | The Chocolate Story</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.jpg" alt="The Chocolate Story logo">
+      <span>The Chocolate Story</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop All</a>
+      <a href="shop.html?category=bowls">Choco Bowls</a>
+      <a href="shop.html?category=chocolates">Chocolates</a>
+      <a href="shop.html?category=gifts">Gift Hampers</a>
+    </nav>
+
+    <a href="cart.html" class="cart-link" aria-current="page">
+      Bag (<span id="cartCount">0</span>)
+    </a>
+
+    <button
+      type="button"
+      id="menuToggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >☰</button>
+  </header>
+
+  <main class="cart-page">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span>Your Bag</span>
+    </div>
+
+    <section class="cart-heading">
+      <p class="eyebrow">YOUR CHOCOLATE SELECTION</p>
+      <h1>Your Bag</h1>
+      <p>Review your selection before enquiring about your order.</p>
+    </section>
+
+    <div class="cart-layout">
+      <section class="cart-items-section">
+        <div class="cart-section-heading">
+          <h2>Selected Items</h2>
+          <a href="shop.html">Continue shopping</a>
+        </div>
+
+        <!-- Populated by app.js -->
+        <div id="cartItems" class="cart-items">
+          <div class="empty-state">
+            <p>Loading your bag...</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="cart-summary">
+        <h2>Order Summary</h2>
+
+        <div class="summary-row">
+          <span>Product subtotal</span>
+          <strong id="cartSubtotal">₹0</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Delivery</span>
+          <span>To be confirmed</span>
+        </div>
+
+        <div class="summary-row summary-total">
+          <span>Estimated total</span>
+          <strong id="cartTotal">₹0</strong>
+        </div>
+
+        <p class="checkout-note">
+          Delivery charges and product availability will be confirmed
+          by The Chocolate Story before your order is finalised.
+        </p>
+
+        <button
+          type="button"
+          id="checkoutButton"
+          class="button button-dark checkout-button"
+          disabled
+        >
+          Enquire on WhatsApp
+        </button>
+
+        <p class="cart-trust-note">
+          <span aria-hidden="true">♡</span>
+          Made for gifting, celebrations and chocolate cravings.
+        </p>
+      </aside>
+    </div>
+
+    <section class="product-extra">
+      <p class="eyebrow">SOMETHING CAUGHT YOUR EYE?</p>
+      <h2>Find your next favourite.</h2>
+      <a href="shop.html" class="button button-outline">
+        Explore the Collection
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html">The Chocolate Story</a>
+    <p>Made with love. Shared with happiness.</p>
+    <a href="shop.html">Continue Shopping</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
